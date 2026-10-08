@@ -266,30 +266,41 @@ h2{
 footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px}
 </style>
 
+
 <style>
-  .social-links {
-    display: flex;
-    gap: 18px;
-    margin-top: 12px;
-  }
+.contact-box{
+  background:linear-gradient(135deg,#1437a9,#9b5821 60%,#0d99ab);
+  color:#fff;
+  border-radius:24px;
+  padding:44px 36px;
+  box-shadow:0 10px 30px rgba(14,26,43,.08);
+}
+.contact-box h2{color:#fff;font-size:clamp(26px,4vw,34px);margin:0}
+.contact-box p{opacity:.92;max-width:52ch;margin-top:10px}
 
-  .social-links a {
-    font-size: 32px;
-    color: #333;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
+.social-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+.social-links a{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:54px;height:54px;border-radius:50%;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.3);
+  color:#fff;font-size:22px;text-decoration:none;
+  transition:background .15s,color .15s,transform .15s;
+}
+.social-links a:hover{background:#fff;transform:translateY(-3px)}
+.social-links a:focus-visible{outline:3px solid #fff;outline-offset:3px}
 
-  .social-links a:hover {
-    transform: scale(1.2);
-  }
+/* Hover korle each logo-r brand color */
+.social-links a.phone:hover{color:#16a34a}
+.social-links a.email:hover{color:#ea4335}
+.social-links a.github:hover{color:#171515}
+.social-links a.linkedin:hover{color:#0a66c2}
+.social-links a.facebook:hover{color:#1877f2}
 
-  .social-links a[aria-label="Phone"]:hover    { color: #25a244; }
-  .social-links a[aria-label="Email"]:hover    { color: #ea4335; }
-  .social-links a[aria-label="GitHub"]:hover   { color: #181717; }
-  .social-links a[aria-label="LinkedIn"]:hover { color: #0a66c2; }
-  .social-links a[aria-label="Facebook"]:hover { color: #1877f2; }
+@media (max-width:760px){
+  .contact-box{padding:32px 22px}
+}
 </style>
-
 
 </head>
 <body>
@@ -344,29 +355,32 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px}
 </section>
 
 
-<!-- Head er moddhe (already add kora thakle abar dite hobe na) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Feel free to reach out for internships, collaboration or any opportunity.</p>
 
-  <div class="social-links">
-    <a href="tel:+8801619031184" aria-label="Phone" title="+880 1619-031184">
-      <i class="fa-solid fa-phone"></i>
-    </a>
-    <a href="mailto:mdassayem0@gmail.com" aria-label="Email" title="mdassayem0@gmail.com">
-      <i class="fa-solid fa-envelope"></i>
-    </a>
-    <a href="https://github.com/sayem411" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-      <i class="fa-brands fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/md-as-sayem-60059b405" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-      <i class="fa-brands fa-linkedin"></i>
-    </a>
-    <a href="https://www.facebook.com/md.as.sayem.50" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
-      <i class="fa-brands fa-facebook"></i>
-    </a>
+
+<section id="contact">
+  <div class="contact-box">
+    <h2>Let's connect</h2>
+    <p>Feel free to reach out for internships, collaboration or any opportunity.</p>
+
+    <div class="social-links">
+      <a class="phone" href="tel:+8801619031184" aria-label="Phone" title="+880 1619-031184">
+        <i class="fa-solid fa-phone"></i>
+      </a>
+      <a class="email" href="mailto:mdassayem0@gmail.com" aria-label="Email" title="mdassayem0@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <a class="github" href="https://github.com/sayem411" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a class="linkedin" href="https://www.linkedin.com/in/md-as-sayem-60059b405" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a class="facebook" href="https://www.facebook.com/md.as.sayem.50" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+    </div>
   </div>
 </section>
 
