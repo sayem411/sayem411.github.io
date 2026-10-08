@@ -265,6 +265,30 @@ h2{
 
 footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px}
 </style>
+
+
+<style>
+  .social-links {
+    display: flex;
+    gap: 18px;
+    margin-top: 12px;
+  }
+
+  .social-links a {
+    font-size: 32px;
+    color: #333;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .social-links a:hover {
+    transform: scale(1.2);
+  }
+
+  .social-links a[aria-label="GitHub"]:hover   { color: #d8d4d4; }
+  .social-links a[aria-label="LinkedIn"]:hover { color: #0a66c2; }
+  .social-links a[aria-label="Facebook"]:hover { color: #5b9ff7; }
+</style>
+
 </head>
 <body>
 <nav>
@@ -317,15 +341,39 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px}
   </div>
 </section>
 
+
+
+
+<!-- Head er moddhe ei link ta add koro (Font Awesome icons er jonno) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <section id="contact">
   <h2>Contact</h2>
   <p>Feel free to reach out for internships, collaboration or any opportunity.</p>
-  <p>Phone: <a href="tel:+8801619031184">+880 1619-031184</a><br>
-  Email: <a href="mailto:mdassayem0@gmail.com">mdassayem0@gmail.com</a><br>
-  GitHub: <a href="https://github.com/sayem411" target="_blank" rel="noopener">github.com/sayem411</a><br>
-  LinkedIn: <a href="https://www.linkedin.com/in/md-as-sayem-60059b405" target="_blank" rel="noopener">linkedin.com/in/md-as-sayem-60059b405</a><br>
-  Facebook: <a href="https://www.facebook.com/md.as.sayem.50" target="_blank" rel="noopener">facebook.com/md.as.sayem.50</a></p>
+
+  <p>
+    Phone: <a href="tel:+8801619031184">+880 1619-031184</a><br>
+    Email: <a href="mailto:mdassayem0@gmail.com">mdassayem0@gmail.com</a>
+  </p>
+
+  <div class="social-links">
+    <a href="https://github.com/sayem411" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/md-as-sayem-60059b405" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="https://www.facebook.com/md.as.sayem.50" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+  </div>
 </section>
+
+
+
+
+
+
 </div>
 <footer>&copy; 2026  Developed By Sayem</footer>
 </body>
