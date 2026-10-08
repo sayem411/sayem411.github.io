@@ -266,7 +266,6 @@ h2{
 footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px}
 </style>
 
-
 <style>
   .social-links {
     display: flex;
@@ -284,10 +283,13 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px}
     transform: scale(1.2);
   }
 
-  .social-links a[aria-label="GitHub"]:hover   { color: #d8d4d4; }
+  .social-links a[aria-label="Phone"]:hover    { color: #25a244; }
+  .social-links a[aria-label="Email"]:hover    { color: #ea4335; }
+  .social-links a[aria-label="GitHub"]:hover   { color: #181717; }
   .social-links a[aria-label="LinkedIn"]:hover { color: #0a66c2; }
-  .social-links a[aria-label="Facebook"]:hover { color: #5b9ff7; }
+  .social-links a[aria-label="Facebook"]:hover { color: #1877f2; }
 </style>
+
 
 </head>
 <body>
@@ -342,21 +344,20 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px}
 </section>
 
 
-
-
-<!-- Head er moddhe ei link ta add koro (Font Awesome icons er jonno) -->
+<!-- Head er moddhe (already add kora thakle abar dite hobe na) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <section id="contact">
   <h2>Contact</h2>
   <p>Feel free to reach out for internships, collaboration or any opportunity.</p>
 
-  <p>
-    Phone: <a href="tel:+8801619031184">+880 1619-031184</a><br>
-    Email: <a href="mailto:mdassayem0@gmail.com">mdassayem0@gmail.com</a>
-  </p>
-
   <div class="social-links">
+    <a href="tel:+8801619031184" aria-label="Phone" title="+880 1619-031184">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="mailto:mdassayem0@gmail.com" aria-label="Email" title="mdassayem0@gmail.com">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
     <a href="https://github.com/sayem411" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
       <i class="fa-brands fa-github"></i>
     </a>
@@ -368,11 +369,6 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px}
     </a>
   </div>
 </section>
-
-
-
-
-
 
 </div>
 <footer>&copy; 2026  Developed By Sayem</footer>
