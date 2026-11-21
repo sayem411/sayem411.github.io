@@ -42,9 +42,9 @@
   --card-b:rgba(255,255,255,.12);
   --text:#eeeaff;
   --muted:#a7a2c8;
-  --a1:#5ce9f6;   /* cyan */
-  --a2:#2296ee;   /* blue */
-  --a3:#f4727d;   /* pink */
+  --a1:#8f5cf6;   /* cyan */
+  --a2:#22adee;   /* blue */
+  --a3:#f4729f;   /* pink */
   --grad:linear-gradient(120deg,var(--a1),var(--a2) 55%,var(--a3));
 }
 @media (prefers-color-scheme:light){
@@ -79,19 +79,52 @@ a{color:var(--a2);text-decoration:none}
   66%{transform:translate(-40px,70px) scale(.9)}
 }
 
-/* nav */
+/* nav: hamburger + dropdown */
 nav{
-  position:sticky;top:0;z-index:20;display:flex;gap:6px;justify-content:center;
-  padding:10px 14px;overflow-x:auto;
+  position:sticky;top:0;z-index:20;
   background:color-mix(in srgb,var(--bg) 70%,transparent);
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid var(--card-b);
 }
-nav a{
-  color:var(--muted);font-size:14px;font-weight:500;white-space:nowrap;
-  padding:7px 16px;border-radius:999px;transition:.25s;
+.nav-inner{
+  max-width:960px;margin:0 auto;padding:10px 20px;
+  display:flex;justify-content:flex-end;position:relative;
 }
-nav a:hover{color:#fff;background:var(--grad);transform:translateY(-2px)}
+.menu-btn{
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  width:46px;height:46px;padding:0;border-radius:14px;cursor:pointer;
+  background:var(--card);border:1px solid var(--card-b);color:var(--text);
+  transition:background .25s,border-color .25s,transform .2s;
+}
+.menu-btn:hover{border-color:var(--a1);transform:translateY(-2px)}
+.menu-btn:focus-visible{outline:3px solid var(--a1);outline-offset:3px}
+.menu-btn span{
+  display:block;width:22px;height:2.5px;border-radius:2px;background:var(--text);
+  transition:transform .3s ease,opacity .2s ease,background .25s;
+}
+.menu-btn[aria-expanded="true"]{background:var(--grad);border-color:transparent}
+.menu-btn[aria-expanded="true"] span{background:#fff}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.menu{
+  position:absolute;top:calc(100% + 8px);right:20px;min-width:210px;
+  display:flex;flex-direction:column;gap:4px;padding:10px;border-radius:18px;
+  background:var(--bg2);border:1px solid var(--card-b);
+  box-shadow:0 18px 45px rgba(0,0,0,.35);
+  opacity:0;visibility:hidden;transform:translateY(-10px) scale(.97);transform-origin:top right;
+  transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;
+}
+.menu.open{
+  opacity:1;visibility:visible;transform:none;
+  transition:opacity .22s ease,transform .22s ease,visibility 0s;
+}
+.menu a{
+  display:block;color:var(--text);font-size:15px;font-weight:600;
+  padding:11px 16px;border-radius:12px;transition:background .2s,color .2s,transform .2s;
+}
+.menu a:hover,.menu a:focus-visible{color:#fff;background:var(--grad);transform:translateX(-3px);outline:none}
 
 .wrap{max-width:960px;margin:0 auto;padding:0 20px}
 
@@ -329,11 +362,18 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:44px 0 34px}
 <div class="bg"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#education">Education</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
+  <div class="nav-inner">
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu" id="menu">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
 
 <div class="wrap">
@@ -457,6 +497,28 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:44px 0 34px}
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // hamburger dropdown menu
+  var menuBtn = document.getElementById('menu-btn');
+  var menu = document.getElementById('menu');
+  function setMenu(open){
+    menu.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  menuBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    setMenu(!menu.classList.contains('open'));
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ setMenu(false); });
+  });
+  document.addEventListener('click', function(e){
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); menuBtn.focus(); }
+  });
 
   // scroll progress bar
   var bar = document.getElementById('progress');
