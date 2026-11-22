@@ -27,7 +27,8 @@
     "https://github.com/sayem411",
     "https://www.linkedin.com/in/md-as-sayem-60059b405/",
     "https://www.facebook.com/md.as.sayem.50",
-    "https://www.instagram.com/mdassayem/"
+    "https://www.instagram.com/mdassayem/",
+    "https://www.youtube.com/@sayemsyntax"
   ]
 }
 </script>
@@ -42,9 +43,9 @@
   --card-b:rgba(255,255,255,.12);
   --text:#eeeaff;
   --muted:#a7a2c8;
-  --a1:#8f5cf6;   /* cyan */
-  --a2:#22adee;   /* blue */
-  --a3:#f4729f;   /* pink */
+  --a1:#ad8ced;   /* cyan */
+  --a2:#0a9de1;   /* blue */
+  --a3:#f24b86;   /* pink */
   --grad:linear-gradient(120deg,var(--a1),var(--a2) 55%,var(--a3));
 }
 @media (prefers-color-scheme:light){
@@ -168,6 +169,7 @@ h1{
 }
 .btn.alt{background:transparent;color:var(--text);border:2px solid var(--a1);box-shadow:none}
 .btn:hover{transform:translateY(-4px) scale(1.04);text-decoration:none}
+.btn.yt:hover{background:#FF0000;border-color:#FF0000;color:#fff}
 
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin:10px 0 0}
@@ -321,6 +323,12 @@ p{margin:0 0 14px}
   background:#1877F2;border-color:#1877F2;color:#fff;
   box-shadow:0 10px 24px rgba(24,119,242,.30)
 }
+.social-links a.youtube:hover,
+.social-links a.youtube:focus-visible,
+.social-links a.youtube:active{
+  background:#FF0000;border-color:#FF0000;color:#fff;
+  box-shadow:0 10px 24px rgba(255,0,0,.30)
+}
 .social-links a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 
 @media(max-width:640px){
@@ -386,7 +394,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:44px 0 34px}
     <p class="hello">Hi, I'm</p>
     <h1>Almas Sayem</h1>
     <p class="tag"><span id="typed" class="typed"></span></p>
-    <a class="btn" href="#contact">Contact Me</a><a class="btn alt" href="#education">My Education</a>
+    <a class="btn" href="#contact">Contact Me</a><a class="btn alt" href="#education">My Education</a><a class="btn alt yt" href="https://www.youtube.com/@sayemsyntax" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> YouTube</a>
   </div>
 </header>
 
@@ -487,6 +495,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:44px 0 34px}
       <a class="github" href="https://github.com/sayem411" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github"></i></a>
       <a class="linkedin" href="https://www.linkedin.com/in/md-as-sayem-60059b405" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       <a class="facebook" href="https://www.facebook.com/md.as.sayem.50" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a class="youtube" href="https://www.youtube.com/@sayemsyntax" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
     </div>
   </div>
 </section>
