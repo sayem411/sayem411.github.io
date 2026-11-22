@@ -219,6 +219,8 @@ p{margin:0 0 14px}
   padding:9px 20px;border-radius:999px;font-size:14px;font-weight:500;
   background:var(--card);border:1.5px solid var(--card-b);transition:.25s;cursor:default;
 }
+.skill-group{margin-bottom:24px}
+.skill-group h3{margin:0 0 12px;font-size:16px;color:var(--muted);font-weight:650}
 .chip:hover{background:var(--grad);color:#fff;border-color:transparent;transform:translateY(-5px) rotate(-2deg)}
 
 /* Contact form - matched to the portfolio theme */
@@ -492,6 +494,7 @@ body.intro-lock{overflow:hidden}
   <p>I am Almas Sayem, a Software Engineering student at Daffodil International University, currently in my 4th semester. I earned a perfect 4.00 GPA last semester, and I have a strong academic record from SSC (GPA 5.00) and HSC (GPA 4.92).</p>
   <p>I work with Python, C, Java and MySQL, and I am learning web development with HTML, CSS and JavaScript. I enjoy Data Structures and Algorithms, and I like turning ideas into small working programs such as a fuel management system, a student portal and an array data manager.</p>
   <p>I am also developing JibonSetu, a blood donation platform designed to connect blood donors with people who need blood. The project uses Firebase Authentication and Cloud Firestore, with features for donor registration, donor search and blood-request management.</p>
+  <p>Beyond coding, I enjoy creative work. I edit videos with CapCut and Canva, edit photos with Adobe Lightroom, PicsArt and Snapseed, and use Microsoft Office for documents and presentations.</p>
   <p>I am always eager to learn new technologies, improve my problem solving and grow into a skilled software engineer.</p>
 </section>
 
@@ -506,13 +509,37 @@ body.intro-lock{overflow:hidden}
 
 <section id="skills">
   <h2 class="reveal">Skills</h2>
-  <div class="chips reveal">
-    <span class="chip">Web Development (HTML, CSS, JavaScript)</span>
-    <span class="chip">C Programming</span>
-    <span class="chip">Python</span>
-    <span class="chip">Java</span>
-    <span class="chip">MySQL (Query Language)</span>
-    <span class="chip">Data Structure &amp; Algorithm</span>
+  <div class="skill-group reveal">
+    <h3>Programming &amp; Development</h3>
+    <div class="chips">
+      <span class="chip">Web Development (HTML, CSS, JavaScript)</span>
+      <span class="chip">C Programming</span>
+      <span class="chip">Python</span>
+      <span class="chip">Java</span>
+      <span class="chip">MySQL (Query Language)</span>
+      <span class="chip">Data Structure &amp; Algorithm</span>
+    </div>
+  </div>
+  <div class="skill-group reveal">
+    <h3>Office</h3>
+    <div class="chips">
+      <span class="chip">Microsoft Office</span>
+    </div>
+  </div>
+  <div class="skill-group reveal">
+    <h3>Video Editing &amp; Design</h3>
+    <div class="chips">
+      <span class="chip">CapCut</span>
+      <span class="chip">Canva</span>
+    </div>
+  </div>
+  <div class="skill-group reveal">
+    <h3>Photo Editing</h3>
+    <div class="chips">
+      <span class="chip">Adobe Lightroom</span>
+      <span class="chip">PicsArt</span>
+      <span class="chip">Snapseed</span>
+    </div>
   </div>
 </section>
 
@@ -538,11 +565,11 @@ body.intro-lock{overflow:hidden}
         </div>
         <div class="phone-wrap">
           <div class="panels">
-            <div class="pframe" role="tabpanel" id="sp-1" aria-labelledby="st-1"><img src="1-login.jpg" alt="JibonSetu login screen with email and password fields" width="720" height="1432"></div>
-            <div class="pframe" role="tabpanel" id="sp-2" aria-labelledby="st-2" hidden><img src="2-signup.jpg" alt="JibonSetu sign-up screen with name, email and password" width="720" height="1432" loading="lazy"></div>
-            <div class="pframe" role="tabpanel" id="sp-3" aria-labelledby="st-3" hidden><img src="3-home.jpg" alt="JibonSetu home screen with blood group buttons" width="720" height="1432" loading="lazy"></div>
-            <div class="pframe" role="tabpanel" id="sp-4" aria-labelledby="st-4" hidden><img src="4-stats.jpg" alt="JibonSetu live statistics and emergency requests section" width="720" height="1432" loading="lazy"></div>
-            <div class="pframe" role="tabpanel" id="sp-5" aria-labelledby="st-5" hidden><img src="5-donors.jpg" alt="JibonSetu donor cards with availability and contact buttons" width="720" height="1432" loading="lazy"></div>
+            <div class="pframe" role="tabpanel" id="sp-1" aria-labelledby="st-1"><img src="jibonsetu/1-login.jpg" alt="JibonSetu login screen with email and password fields" width="720" height="1432"></div>
+            <div class="pframe" role="tabpanel" id="sp-2" aria-labelledby="st-2" hidden><img src="jibonsetu/2-signup.jpg" alt="JibonSetu sign-up screen with name, email and password" width="720" height="1432" loading="lazy"></div>
+            <div class="pframe" role="tabpanel" id="sp-3" aria-labelledby="st-3" hidden><img src="jibonsetu/3-home.jpg" alt="JibonSetu home screen with blood group buttons" width="720" height="1432" loading="lazy"></div>
+            <div class="pframe" role="tabpanel" id="sp-4" aria-labelledby="st-4" hidden><img src="jibonsetu/4-stats.jpg" alt="JibonSetu live statistics and emergency requests section" width="720" height="1432" loading="lazy"></div>
+            <div class="pframe" role="tabpanel" id="sp-5" aria-labelledby="st-5" hidden><img src="jibonsetu/5-donors.jpg" alt="JibonSetu donor cards with availability and contact buttons" width="720" height="1432" loading="lazy"></div>
           </div>
         </div>
       </div>
