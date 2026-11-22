@@ -362,10 +362,51 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:44px 0 34px}
 .featured-project .project-links a:hover{transform:translateY(-3px);border-color:var(--a1)}
 .project-stack{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
 .project-stack span{font-size:12px;padding:5px 11px;border-radius:999px;background:var(--card);border:1px solid var(--card-b);color:var(--muted)}
+
+/* welcome intro */
+body.intro-lock{overflow:hidden}
+#intro{
+  position:fixed;inset:0;z-index:100;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  padding:20px;text-align:center;cursor:pointer;
+  background:radial-gradient(circle at 50% 40%,var(--bg2),var(--bg));
+  transition:transform .9s cubic-bezier(.77,0,.18,1),opacity .9s ease;
+}
+#intro.hide{transform:translateY(-100%);opacity:0;pointer-events:none}
+.intro-sub{
+  margin:0;color:var(--muted);font-size:clamp(14px,3.5vw,20px);
+  letter-spacing:6px;text-transform:uppercase;
+  opacity:0;animation:introFade .8s .2s ease forwards;
+}
+.intro-title{
+  margin:0;font-size:clamp(34px,9vw,72px);line-height:1.1;font-weight:800;letter-spacing:-1px;
+}
+.intro-title .ch{
+  display:inline-block;opacity:0;transform:translateY(40px) scale(.6) rotate(8deg);
+  animation:letterIn .6s cubic-bezier(.2,.9,.3,1.4) forwards;
+}
+.intro-title .sp{display:inline-block;width:.3em}
+.intro-bar{
+  width:min(260px,60vw);height:4px;border-radius:4px;margin-top:22px;
+  background:var(--card-b);overflow:hidden;
+}
+.intro-bar i{display:block;height:100%;width:0;background:var(--grad);animation:introLoad 3s .3s ease forwards}
+.intro-skip{margin:6px 0 0;font-size:12px;color:var(--muted);opacity:.7}
+@keyframes letterIn{to{opacity:1;transform:none}}
+@keyframes introFade{to{opacity:1}}
+@keyframes introLoad{to{width:100%}}
 </style>
 </head>
 
 <body>
+<div id="intro" aria-label="Welcome">
+  <p class="intro-sub">Welcome to</p>
+  <div class="intro-title" id="intro-title" role="heading" aria-level="2" aria-label="Sayem's Portfolio"></div>
+  <div class="intro-bar"><i></i></div>
+  <p class="intro-skip">Tap to skip</p>
+</div>
+<noscript><style>#intro{display:none}body.intro-lock{overflow:auto}</style></noscript>
+
 <div id="progress"></div>
 <div class="bg"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
 
@@ -467,6 +508,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:44px 0 34px}
     <form class="contact-form" action="https://formsubmit.co/mdassayem0@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New message from your portfolio website">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://sayem411.github.io/?sent=true#contact">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
@@ -506,6 +548,38 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:44px 0 34px}
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // welcome intro
+  var intro = document.getElementById('intro');
+  var skipIntro = reduce || new URLSearchParams(location.search).get('sent') === 'true';
+  if (skipIntro) {
+    intro.remove();
+  } else {
+    document.body.classList.add('intro-lock');
+    var titleEl = document.getElementById('intro-title');
+    var text = "Sayem's Portfolio";
+    for (var i = 0; i < text.length; i++) {
+      var s = document.createElement('span');
+      if (text[i] === ' ') { s.className = 'sp'; }
+      else {
+        s.className = 'ch';
+        s.textContent = text[i];
+        s.style.animationDelay = (0.5 + i * 0.07) + 's';
+        s.style.color = 'hsl(' + (265 + i * 5) + ',85%,68%)';
+      }
+      titleEl.appendChild(s);
+    }
+    var done = false;
+    function closeIntro(){
+      if (done) return; done = true;
+      intro.classList.add('hide');
+      document.body.classList.remove('intro-lock');
+      setTimeout(function(){ intro.remove(); }, 1000);
+    }
+    setTimeout(closeIntro, 3600);
+    intro.addEventListener('click', closeIntro);
+    document.addEventListener('keydown', closeIntro, {once:true});
+  }
 
   // hamburger dropdown menu
   var menuBtn = document.getElementById('menu-btn');
